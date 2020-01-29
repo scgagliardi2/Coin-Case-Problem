@@ -17,10 +17,8 @@ mod10 = withdrawAmount % 10
 # exact amount is possible boolean
 EAB = True
 
-# this function returns EAB ture or false
 
-
-def checkEAB():
+def checkEAB():  # this function returns EAB ture or false
     # is there enough to withdraw
     if withdrawAmount > CC.total:
         print('Unable to withdraw ' + str(withdrawAmount) +
