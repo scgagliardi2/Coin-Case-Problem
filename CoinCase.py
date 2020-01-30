@@ -16,6 +16,11 @@ class CoinCase:
 
         self.total = self.qtotal + self.dtotal + self.ntotal + self.ptotal
 
+        self.withdraw = random.randint(0, 100)
+        self.mod5 = self.withdraw % 5
+        self.mod10 = self.withdraw % 10
+        self.mod25 = self.withdraw % 25
+
     def removeCoin(self, coin):
         if coin == 'quarter':
             self.quarters -= 1
@@ -33,3 +38,8 @@ class CoinCase:
     def caseContains(self):
         print('Quarters: ' + str(self.quarters) + ' ,Dimes: ' + str(self.dimes) +
               ' ,Nickels: ' + str(self.nickels) + ' ,Pennies: ' + str(self.pennies) + ' ,Total: ' + str(self.total))
+
+    def getMod(self, amount):
+        self.mod5 = amount % 5
+        self.mod10 = amount % 10
+        self.mod25 = amount % 25
