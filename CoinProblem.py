@@ -2,12 +2,14 @@ import random
 import CoinCase
 import sys
 
-# creat coin case
+# create coin case
 CC = CoinCase.CoinCase()
+# print case contents
 CC.caseContains()
 
 # create withdrawal
 withdrawAmount = random.randint(0, 100)
+# print withdrawal amount
 print('Try to withdraw ' + str(withdrawAmount))
 
 # get Moduli
@@ -16,7 +18,7 @@ mod10 = withdrawAmount % 10
 mod25 = withdrawAmount % 25
 
 
-def findPerfectSolution():
+def findPerfectSolution():  # find solution when perfect solution is an option
     global withdrawAmount
     global mod5
     global mod10
@@ -27,7 +29,7 @@ def findPerfectSolution():
         if withdrawAmount > 0:
             if mod25 != 0 or CC.quarters == 0:
                 if withdrawAmount >= 50 and CC.quarters > 1:
-                    withdrawAmount -= 50    
+                    withdrawAmount -= 50
                     holdArray.append('quarter')
                     CC.removeCoin('quarter')
                     holdArray.append('quarter')
@@ -94,7 +96,7 @@ def findPerfectSolution():
     return [solutionFound, holdArray]
 
 
-def findImperfectSolution():
+def findImperfectSolution():  # find solution when perfect solution is not an option
     global withdrawAmount
     global mod5
     global mod10
@@ -130,7 +132,7 @@ def findImperfectSolution():
         return [False, holdArry]
 
 
-# exact amount is possible boolean
+# boolean stating whether or not an exact amount is possible
 EAB = True
 
 
@@ -175,7 +177,7 @@ checkForPerfectSolution()
 if EAB:
     solutionFound = findPerfectSolution()
 else:
-    # change until EAB is true if it isn't
+    # add one to withdrawal amount until EAB is true, if it isn't already
     while not EAB:
         withdrawAmount += 1
         mod5 = withdrawAmount % 5
